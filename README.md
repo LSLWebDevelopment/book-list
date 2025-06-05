@@ -1,3 +1,6 @@
+This project is all about create and maintain a list of books
+You can create a book, list all the books, edit a particular book and delete a book
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
