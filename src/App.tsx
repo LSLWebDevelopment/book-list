@@ -40,7 +40,7 @@ export function App() {
     const filteredBooks = books.map((book: BookEntity) => {
       if (book.id === newBook.id) {
         // return newBook;
-        return { id: newBook.id, title: newBook.title };
+        return newBook;
       }
       return book;
     });

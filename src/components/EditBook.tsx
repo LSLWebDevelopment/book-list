@@ -19,6 +19,7 @@ export function EditBook({ onCloseEditing, onEdition, book }: EditBookProps) {
 
     const newBook = {
       id: book.id,
+      img: book.img,
       title,
     };
     onCloseEditing();
