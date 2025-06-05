@@ -13,7 +13,7 @@ export function ListBooks({ books, onDeletion, onEdition }: ListBooksProps) {
       <ShowBook
         key={book.id}
         book={book}
-        onClick={onDeletion}
+        onDeletion={onDeletion}
         onEdition={onEdition}
       />
     );

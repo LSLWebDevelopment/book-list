@@ -2,12 +2,12 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import type { BookEntity } from "../entities/BookEntity";
 
 interface EditBookProps {
-  onClick: (close: boolean) => void;
+  onCloseEditing: () => void;
   onEdition: (newBook: BookEntity) => void;
   book: BookEntity;
 }
 
-export function EditBook({ onClick, onEdition, book }: EditBookProps) {
+export function EditBook({ onCloseEditing, onEdition, book }: EditBookProps) {
   const [title, setTitle] = useState(book.title);
 
   const handleEdition = (event: ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +21,7 @@ export function EditBook({ onClick, onEdition, book }: EditBookProps) {
       id: book.id,
       title,
     };
-    onClick(false);
+    onCloseEditing();
     onEdition(newBook);
   };
 
@@ -30,7 +30,7 @@ export function EditBook({ onClick, onEdition, book }: EditBookProps) {
       <div className="flex justify-between">
         <label htmlFor="newTitle">Title</label>
         <button
-          onClick={() => onClick(false)}
+          onClick={onCloseEditing}
           type="button"
           className="bg-gray-600 px-3 text-white cursor-pointer"
         >

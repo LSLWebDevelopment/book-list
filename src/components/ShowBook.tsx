@@ -4,11 +4,11 @@ import { EditBook } from "./EditBook";
 
 interface ShowBookProps {
   book: BookEntity;
-  onClick: (id: number) => void;
+  onDeletion: (id: number) => void;
   onEdition: (book: BookEntity) => void;
 }
 
-export function ShowBook({ book, onClick, onEdition }: ShowBookProps) {
+export function ShowBook({ book, onDeletion, onEdition }: ShowBookProps) {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleIsEditing = () => {
@@ -17,6 +17,9 @@ export function ShowBook({ book, onClick, onEdition }: ShowBookProps) {
 
   return (
     <div className="pl-5 pt-2 pr-2 bg-gray-300 border-2 border-gray-200">
+      <figure>
+        <img className="w-50" src={book.img} alt={book.title} />
+      </figure>
       <div className="flex justify-end gap-2 mb-5">
         <button
           type="button"
@@ -28,13 +31,17 @@ export function ShowBook({ book, onClick, onEdition }: ShowBookProps) {
         <button
           type="submit"
           className="bg-red-300 border-2 border-red-500  py-1 px-3  cursor-pointer"
-          onClick={() => onClick(book.id)}
+          onClick={() => onDeletion(book.id)}
         >
           Delete
         </button>
       </div>
       {isEditing ? (
-        <EditBook onClick={setIsEditing} book={book} onEdition={onEdition} />
+        <EditBook
+          onCloseEditing={handleIsEditing}
+          book={book}
+          onEdition={onEdition}
+        />
       ) : (
         <p>{book.title}</p>
       )}

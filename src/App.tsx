@@ -1,13 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CreatBook } from "./components/CreateBook";
 import type { BookEntity } from "./entities/BookEntity";
 import { ListBooks } from "./components/ListBooks";
+import axios from "axios";
 
 export function App() {
   const [books, setBooks] = useState<BookEntity[]>([]);
 
-  const handleBookCreation = (book: BookEntity) => {
+  const fetchImage = async (imageTitle: string) => {
+    const searchEngineId = "e32636db426d6487e";
+    const apiKey = "AIzaSyDORl1S1YOGf7Dk4c5O0-a8ZjNjedZA4p8";
+    const response = await axios.get(
+      `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${searchEngineId}&q=${imageTitle}&searchType=image`
+    );
+    return response.data.items[0].link;
+  };
+
+  const handleBookCreation = async (book: BookEntity) => {
     try {
+      const image = await fetchImage(book.title);
+      book.img = image;
       setBooks((prevBooks: BookEntity[]) => {
         return [book, ...prevBooks];
       });
@@ -25,10 +37,10 @@ export function App() {
   };
 
   const handleBookEdition = (newBook: BookEntity) => {
-    console.log("error");
     const filteredBooks = books.map((book: BookEntity) => {
       if (book.id === newBook.id) {
-        return newBook;
+        // return newBook;
+        return { id: newBook.id, title: newBook.title };
       }
       return book;
     });
