@@ -18,7 +18,7 @@ export function ShowBook({ book, onDeletion, onEdition }: ShowBookProps) {
   return (
     <div className="pl-5 pt-2 pr-2 bg-gray-300 border-2 border-gray-200">
       <figure>
-        <img className="w-50" src={book.img} alt={book.title} />
+        <img className="w-80" src={book.img} alt={book.title} />
       </figure>
       <div className="flex justify-end gap-2 mb-5">
         <button
