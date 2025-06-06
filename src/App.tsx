@@ -3,9 +3,20 @@ import { CreatBook } from "./components/CreateBook";
 import type { BookEntity } from "./entities/BookEntity";
 import { ListBooks } from "./components/ListBooks";
 import axios from "axios";
+import { getBookListService } from "./services/getBookListService";
 
 export function App() {
   const [books, setBooks] = useState<BookEntity[]>([]);
+
+  const fetchBookList = async () => {
+    const data = await getBookListService();
+    setBooks(data);
+    console.log(data);
+  };
+
+  useEffect(() => {
+    fetchBookList();
+  }, []);
 
   const fetchImage = async (imageTitle: string) => {
     const searchEngineId = "e32636db426d6487e";
