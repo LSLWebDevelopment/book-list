@@ -1,5 +1,5 @@
 export interface BookEntity {
-  id: number;
+  id?: number;
   img: string;
   title: string;
 }

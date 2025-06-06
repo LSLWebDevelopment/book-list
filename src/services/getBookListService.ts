@@ -1,9 +1,9 @@
 import axios from "axios";
 import type { BookEntity, BookResponseEntity } from "../entities/BookEntity";
-import { listUrl } from "../env/listUrl";
+import { listBooksUrl } from "../env/listUrl";
 
 export async function getBookListService(): Promise<BookEntity[]> {
-  const response = await axios.get<BookResponseEntity[]>(listUrl);
+  const response = await axios.get<BookResponseEntity[]>(listBooksUrl);
 
   const data: BookEntity[] = response.data.map((book: BookResponseEntity) => {
     return {

@@ -4,6 +4,8 @@ import type { BookEntity } from "./entities/BookEntity";
 import { ListBooks } from "./components/ListBooks";
 import axios from "axios";
 import { getBookListService } from "./services/getBookListService";
+import { createBookService } from "./services/createBookService";
+import { fetchImage } from "./services/getBookImageService";
 
 export function App() {
   const [books, setBooks] = useState<BookEntity[]>([]);
@@ -11,26 +13,17 @@ export function App() {
   const fetchBookList = async () => {
     const data = await getBookListService();
     setBooks(data);
-    console.log(data);
   };
 
   useEffect(() => {
     fetchBookList();
   }, []);
 
-  const fetchImage = async (imageTitle: string) => {
-    const searchEngineId = "e32636db426d6487e";
-    const apiKey = "AIzaSyDORl1S1YOGf7Dk4c5O0-a8ZjNjedZA4p8";
-    const response = await axios.get(
-      `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${searchEngineId}&q=${imageTitle}&searchType=image`
-    );
-    return response.data.items[0].link;
-  };
-
   const handleBookCreation = async (book: BookEntity) => {
     try {
       const image = await fetchImage(book.title);
       book.img = image;
+      await createBookService(book);
       setBooks((prevBooks: BookEntity[]) => {
         return [book, ...prevBooks];
       });
