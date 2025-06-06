@@ -1,9 +1,10 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import type { BookEntity } from "../entities/BookEntity";
+import type { BookEditEntity, BookEntity } from "../entities/BookEntity";
+import { fetchImage } from "../services/getBookImageService";
 
 interface EditBookProps {
   onCloseEditing: () => void;
-  onEdition: (newBook: BookEntity) => void;
+  onEdition: (newBook: BookEditEntity) => void;
   book: BookEntity;
 }
 
@@ -14,16 +15,18 @@ export function EditBook({ onCloseEditing, onEdition, book }: EditBookProps) {
     setTitle(event.target.value);
   };
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
-    const newBook = {
-      id: book.id,
-      img: book.img,
-      title,
-    };
+    const images: string[] = await fetchImage(title);
+    console.log(images);
+    // const newBook: BookEditEntity = {
+    //   id: book.id,
+    //   img: image,
+    //   title,
+    // };
     onCloseEditing();
-    onEdition(newBook);
+    // onEdition(newBook);
   };
 
   return (

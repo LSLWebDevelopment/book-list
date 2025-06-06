@@ -1,10 +1,10 @@
-import type { BookEntity } from "../entities/BookEntity";
+import type { BookEditEntity, BookEntity } from "../entities/BookEntity";
 import { ShowBook } from "./ShowBook";
 
 interface ListBooksProps {
   books: BookEntity[];
-  onDeletion: (id: number) => void;
-  onEdition: (book: BookEntity) => void;
+  onDeletion: (id: string) => void;
+  onEdition: (book: BookEditEntity) => void;
 }
 
 export function ListBooks({ books, onDeletion, onEdition }: ListBooksProps) {

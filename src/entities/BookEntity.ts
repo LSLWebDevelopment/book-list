@@ -1,15 +1,36 @@
+export interface BookCreateEntity {
+  img: string;
+  title: string;
+}
+
 export interface BookEntity {
-  id?: number;
+  id: string;
   img: string;
   title: string;
 }
 
 export interface BookResponseEntity {
-  id: number;
+  id: string;
   img: string;
   title: string;
 }
 
-// export interface BookListResponseEntity {
-//   data: BookResponseEntity[];
-// }
+export interface BookListEntity {
+  id: string;
+  img: string;
+  title: string;
+}
+
+export interface BookEditEntity {
+  id: string;
+  img: string;
+  title: string;
+}
+
+export interface BookImageResponse {
+  link: string;
+}
+
+export interface BookImageListResponse {
+  items: BookImageResponse[];
+}

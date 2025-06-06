@@ -1,11 +1,11 @@
 import { useState } from "react";
-import type { BookEntity } from "../entities/BookEntity";
+import type { BookEditEntity, BookEntity } from "../entities/BookEntity";
 import { EditBook } from "./EditBook";
 
 interface ShowBookProps {
   book: BookEntity;
-  onDeletion: (id: number) => void;
-  onEdition: (book: BookEntity) => void;
+  onDeletion: (id: string) => void;
+  onEdition: (book: BookEditEntity) => void;
 }
 
 export function ShowBook({ book, onDeletion, onEdition }: ShowBookProps) {

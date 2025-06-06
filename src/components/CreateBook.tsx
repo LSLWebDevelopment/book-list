@@ -1,8 +1,9 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import type { BookEntity } from "../entities/BookEntity";
+import type { BookCreateEntity, BookEntity } from "../entities/BookEntity";
+import { fetchImage } from "../services/getBookImageService";
 
 interface CreateBookProps {
-  onBookCreate: (book: BookEntity) => void;
+  onBookCreate: (book: BookCreateEntity) => Promise<void>;
 }
 
 export function CreatBook({ onBookCreate }: CreateBookProps) {
@@ -12,12 +13,14 @@ export function CreatBook({ onBookCreate }: CreateBookProps) {
     setTitle(event.target.value);
   };
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
+    const image = await fetchImage(title);
+
     const newBook = {
-      id: Math.floor(Math.random() * 9999) + 1,
       title,
+      img: image,
     };
 
     setTitle("");
