@@ -4,9 +4,10 @@ import { fetchImage } from "../services/getBookImageService";
 
 interface CreateBookProps {
   onBookCreate: (book: BookCreateEntity) => Promise<void>;
+  onDisplayModal: () => void;
 }
 
-export function CreatBook({ onBookCreate }: CreateBookProps) {
+export function CreatBook({ onBookCreate, onDisplayModal }: CreateBookProps) {
   const [title, setTitle] = useState("");
 
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -16,7 +17,8 @@ export function CreatBook({ onBookCreate }: CreateBookProps) {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
-    const image = await fetchImage(title);
+    // const image = await fetchImage(title);
+    const image = "";
 
     const newBook = {
       title,
@@ -47,6 +49,13 @@ export function CreatBook({ onBookCreate }: CreateBookProps) {
         <br />
         <button className="border-1 w-30 h-10 mt-2 bg-green-200" type="submit">
           Submit
+        </button>
+        <button
+          onClick={() => onDisplayModal()}
+          className="border-1 w-30 h-10 mt-2 ml-2 bg-green-200"
+          type="button"
+        >
+          Choose Image
         </button>
       </div>
     </form>

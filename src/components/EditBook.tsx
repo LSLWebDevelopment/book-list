@@ -18,15 +18,15 @@ export function EditBook({ onCloseEditing, onEdition, book }: EditBookProps) {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
-    const images: string[] = await fetchImage(title);
-    console.log(images);
-    // const newBook: BookEditEntity = {
-    //   id: book.id,
-    //   img: image,
-    //   title,
-    // };
+    const image = await fetchImage(title);
+
+    const newBook: BookEditEntity = {
+      id: book.id,
+      img: image,
+      title,
+    };
     onCloseEditing();
-    // onEdition(newBook);
+    onEdition(newBook);
   };
 
   return (

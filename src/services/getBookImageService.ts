@@ -4,7 +4,7 @@ import type {
   BookImageResponse,
 } from "../entities/BookEntity";
 
-export async function fetchImage(imageTitle: string): Promise<string> {
+export async function fetchImage(imageTitle: string): Promise<string[]> {
   const searchEngineId = "e32636db426d6487e";
   const apiKey = "AIzaSyDORl1S1YOGf7Dk4c5O0-a8ZjNjedZA4p8";
   const response = await axios.get<BookImageListResponse>(
@@ -15,5 +15,5 @@ export async function fetchImage(imageTitle: string): Promise<string> {
     return img.link;
   });
 
-  return image[0];
+  return image;
 }
