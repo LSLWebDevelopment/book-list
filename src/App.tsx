@@ -8,17 +8,11 @@ import type {
 } from "./entities/BookEntity";
 import { createBookService } from "./services/createBookService";
 import { deleteBookService } from "./services/deleteBookService";
-import { getBookListService } from "./services/getBookListService";
 import { editBookService } from "./services/editBookService";
-import { ListBookImagesModal } from "./components/ListBookImagesModal";
+import { getBookListService } from "./services/getBookListService";
 
 export function App() {
   const [books, setBooks] = useState<BookListEntity[]>([]);
-  const [displayModal, setDisplayModal] = useState(false);
-
-  const handleDisplayModal = () => {
-    setDisplayModal(!displayModal);
-  };
 
   const fetchBookList = async () => {
     const data = await getBookListService();
@@ -47,16 +41,12 @@ export function App() {
   return (
     <div className="p-5">
       <h1 className="font-bold text-5xl text-blue-500">Reading List</h1>
-      <CreatBook
-        onBookCreate={handleBookCreation}
-        onDisplayModal={handleDisplayModal}
-      />
+      <CreatBook onBookCreate={handleBookCreation} />
       <ListBooks
         books={books}
         onDeletion={handleBookDeletion}
         onEdition={handleBookEdition}
       />
-      {displayModal && <ListBookImagesModal />}
     </div>
   );
 }

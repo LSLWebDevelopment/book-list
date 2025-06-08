@@ -1,14 +1,17 @@
-import { useState } from "react";
-
 interface ListBookImagesProps {
   images: string[];
+  onImageChosen: (img: string) => void;
+  onModalClosed: () => void;
 }
 
-export function ListBookImages({ images }: ListBookImagesProps) {
-  const [imageLink, setImageLink] = useState("");
-
+export function ListBookImages({
+  images,
+  onImageChosen,
+  onModalClosed,
+}: ListBookImagesProps) {
   const handleImageChosen = (img: string) => {
-    console.log("Link: ", img);
+    onImageChosen(img);
+    onModalClosed();
   };
 
   const renderedImage = images.map((image: string, index: number) => {
