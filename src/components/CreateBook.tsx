@@ -1,12 +1,10 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import type { BookCreateEntity } from "../entities/BookEntity";
+import { useBookContext } from "../hooks/useBookContext";
 import { ListBookImagesModal } from "./ListBookImagesModal";
 
-interface CreateBookProps {
-  onBookCreate: (book: BookCreateEntity) => Promise<void>;
-}
+export function CreatBook() {
+  const { handleBookCreation } = useBookContext();
 
-export function CreatBook({ onBookCreate }: CreateBookProps) {
   const [displayModal, setDisplayModal] = useState(false);
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
@@ -17,7 +15,6 @@ export function CreatBook({ onBookCreate }: CreateBookProps) {
 
   const handleSetImage = (img: string) => {
     setImage(img);
-    console.log("ListBookImagesModal: ", img);
   };
 
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +31,7 @@ export function CreatBook({ onBookCreate }: CreateBookProps) {
 
     setTitle("");
     setImage("");
-    onBookCreate(newBook);
+    handleBookCreation(newBook);
   };
 
   return (

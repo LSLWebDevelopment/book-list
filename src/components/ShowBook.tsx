@@ -1,14 +1,15 @@
 import { useState } from "react";
 import type { BookEditEntity, BookEntity } from "../entities/BookEntity";
 import { EditBook } from "./EditBook";
+import { useBookContext } from "../hooks/useBookContext";
 
 interface ShowBookProps {
   book: BookEntity;
-  onDeletion: (id: string) => void;
-  onEdition: (book: BookEditEntity) => void;
 }
 
-export function ShowBook({ book, onDeletion, onEdition }: ShowBookProps) {
+export function ShowBook({ book }: ShowBookProps) {
+  const { handleBookDeletion } = useBookContext();
+
   const [isEditing, setIsEditing] = useState(false);
 
   const handleIsEditing = () => {
@@ -31,17 +32,13 @@ export function ShowBook({ book, onDeletion, onEdition }: ShowBookProps) {
         <button
           type="submit"
           className="bg-red-300 border-2 border-red-500  py-1 px-3  cursor-pointer"
-          onClick={() => onDeletion(book.id)}
+          onClick={() => handleBookDeletion(book.id)}
         >
           Delete
         </button>
       </div>
       {isEditing ? (
-        <EditBook
-          onCloseEditing={handleIsEditing}
-          book={book}
-          onEdition={onEdition}
-        />
+        <EditBook onCloseEditing={handleIsEditing} book={book} />
       ) : (
         <p>{book.title}</p>
       )}

@@ -1,22 +1,18 @@
 import type { BookEditEntity, BookEntity } from "../entities/BookEntity";
+import { useBookContext } from "../hooks/useBookContext";
 import { ShowBook } from "./ShowBook";
 
-interface ListBooksProps {
-  books: BookEntity[];
-  onDeletion: (id: string) => void;
-  onEdition: (book: BookEditEntity) => void;
-}
+export function ListBooks() {
+  const context = useBookContext();
 
-export function ListBooks({ books, onDeletion, onEdition }: ListBooksProps) {
+  if (!context) {
+    throw new Error("Error creating BookContext");
+  }
+
+  const { books } = context;
+
   const renderedBooks = books.map((book: BookEntity) => {
-    return (
-      <ShowBook
-        key={book.id}
-        book={book}
-        onDeletion={onDeletion}
-        onEdition={onEdition}
-      />
-    );
+    return <ShowBook key={book.id} book={book} />;
   });
 
   return <div className="flex flex-wrap">{renderedBooks}</div>;

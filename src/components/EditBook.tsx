@@ -1,14 +1,15 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import type { BookEditEntity, BookEntity } from "../entities/BookEntity";
 import { fetchImage } from "../services/getBookImageService";
+import { useBookContext } from "../hooks/useBookContext";
 
 interface EditBookProps {
   onCloseEditing: () => void;
-  onEdition: (newBook: BookEditEntity) => void;
   book: BookEntity;
 }
 
-export function EditBook({ onCloseEditing, onEdition, book }: EditBookProps) {
+export function EditBook({ onCloseEditing, book }: EditBookProps) {
+  const { handleBookEdition } = useBookContext();
   const [title, setTitle] = useState(book.title);
 
   const handleEdition = (event: ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +27,7 @@ export function EditBook({ onCloseEditing, onEdition, book }: EditBookProps) {
       title,
     };
     onCloseEditing();
-    onEdition(newBook);
+    handleBookEdition(newBook);
   };
 
   return (
