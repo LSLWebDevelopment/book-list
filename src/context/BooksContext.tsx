@@ -15,6 +15,8 @@ interface BooksContextProviderProps {
 
 interface BooksContextEntity {
   books: BookListEntity[];
+  displayModal: boolean;
+  handleDisplayModal: () => void;
   fetchBookList: () => void;
   handleBookCreation: (book: BookCreateEntity) => void;
   handleBookDeletion: (id: string) => void;
@@ -25,6 +27,11 @@ export const BookContext = createContext<BooksContextEntity | null>(null);
 
 export function BooksContextProvider({ children }: BooksContextProviderProps) {
   const [books, setBooks] = useState<BookListEntity[]>([]);
+  const [displayModal, setDisplayModal] = useState(false);
+
+  const handleDisplayModal = () => {
+    setDisplayModal(!displayModal);
+  };
 
   const fetchBookList = async () => {
     const data = await getBookListService();
@@ -50,10 +57,12 @@ export function BooksContextProvider({ children }: BooksContextProviderProps) {
     <BookContext.Provider
       value={{
         books,
+        displayModal,
         fetchBookList,
         handleBookEdition,
         handleBookCreation,
         handleBookDeletion,
+        handleDisplayModal,
       }}
     >
       {children}

@@ -3,15 +3,11 @@ import { useBookContext } from "../hooks/useBookContext";
 import { ListBookImagesModal } from "./ListBookImagesModal";
 
 export function CreatBook() {
-  const { handleBookCreation } = useBookContext();
+  const { displayModal, handleBookCreation, handleDisplayModal } =
+    useBookContext();
 
-  const [displayModal, setDisplayModal] = useState(false);
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
-
-  const handleDisplayModal = () => {
-    setDisplayModal(!displayModal);
-  };
 
   const handleSetImage = (img: string) => {
     setImage(img);
