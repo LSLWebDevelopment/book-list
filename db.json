@@ -1,65 +1,34 @@
 {
   "books": [
     {
-      "id": "8d71",
-      "title": "Blood Vessel",
-      "img": "https://m.media-amazon.com/images/M/MV5BMDdjNDc0NmUtYzc4NS00Y2M1LWFiYTMtOTRlNGQxZjJiNjg2XkEyXkFqcGc@._V1_.jpg"
+      "id": "3cc3",
+      "title": "JavaScript",
+      "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1328834919i/1760441.jpg"
     },
     {
-      "id": "52ff",
-      "title": "Resident Evil",
-      "img": "https://m.media-amazon.com/images/M/MV5BYmI3YjJkN2ItY2ZmYS00Y2JhLTk2YTQtYzE5YWU5ODI1MzJmXkEyXkFqcGc@._V1_.jpg"
+      "id": "c6b0",
+      "title": "Head First C",
+      "img": "https://m.media-amazon.com/images/I/71So4WBMAPL._AC_UF1000,1000_QL80_.jpg"
     },
     {
-      "id": "a51f",
-      "title": "The Exorcist",
-      "img": "https://m.media-amazon.com/images/M/MV5BZjg3YjE4ZjAtYTdmYS00ZTBkLWE1ZjgtNzAzODUwNzRiYjlmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      "id": "7c94",
+      "title": "Git",
+      "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1634014557i/58230359.jpg"
     },
     {
-      "id": "9a17",
-      "title": "The Dawn Of The Dead",
-      "img": "https://waxworkrecords.com/cdn/shop/files/DOTD-Cues_Front-Cover_1800x1800_fd3837a5-a961-412e-a59b-fd709893b406_740x.jpg?v=1700172218"
+      "id": "a048",
+      "title": "C Programming Language",
+      "img": "https://m.media-amazon.com/images/I/711AW7I8e8L._AC_UF1000,1000_QL80_.jpg"
     },
     {
-      "id": "6d32",
-      "title": "Army Of Darkness",
-      "img": [
-        "https://m.media-amazon.com/images/M/MV5BYzU4ZDFmNzEtNmE2Ny00OTA1LWEyMmMtZjFiOWM0MGM3YTQ1XkEyXkFqcGc@._V1_.jpg",
-        "https://upload.wikimedia.org/wikipedia/en/4/46/Army_of_Darkness_poster.jpg",
-        "https://m.media-amazon.com/images/I/81AHrs5JAAL.jpg",
-        "https://mondoshop.com/cdn/shop/files/Matt.Stikker_Army.of.Darkness_large_1.jpg?v=1716231755",
-        "https://m.media-amazon.com/images/M/MV5BYzU4ZDFmNzEtNmE2Ny00OTA1LWEyMmMtZjFiOWM0MGM3YTQ1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        "https://images.photowall.com/products/59583/army-of-darkness-1.jpg?h=699&q=85",
-        "https://i.scdn.co/image/ab67616d0000b2739118d61d7fbe761be9eecaeb",
-        "https://m.media-amazon.com/images/M/MV5BNTExMGRlNzAtMGQ1Yy00N2IwLWE4YjUtOThhZDJlNzNjNzM0XkEyXkFqcGdeQXVyNzU1NzE3NTg@._V1_QL75_UX500_CR0,47,500,281_.jpg",
-        "https://i.redd.it/favorite-army-of-darkness-poster-v0-woyowb89k9mb1.jpg?width=1080&format=pjpg&auto=webp&s=4acda6437d08571c07b6d6d7b860a20cdaee575c",
-        "https://m.media-amazon.com/images/I/81AHrs5JAAL._AC_UF894,1000_QL80_.jpg"
-      ]
+      "id": "5184",
+      "title": "Programming Languages",
+      "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1395653199i/19200175.jpg"
     },
     {
-      "id": "32a2",
-      "title": "The Conjuring",
-      "img": "https://m.media-amazon.com/images/M/MV5BMTM3NjA1NDMyMV5BMl5BanBnXkFtZTcwMDQzNDMzOQ@@._V1_.jpg"
-    },
-    {
-      "id": "9144",
-      "title": "The Abominable Creature",
-      "img": "https://macabra.tv/wp-content/uploads/2020/03/A-Abomin%C3%A1vel-Criatura-The-Unnamable-1988-filme-de-terror_poster_Macabra-380x568.jpg"
-    },
-    {
-      "id": "b32f",
-      "title": "The Conjuring 2",
-      "img": "https://m.media-amazon.com/images/M/MV5BOTRkMDlmZWEtMzQyYy00YzgyLTgwM2QtNzgxYmIwNGVlYmJlXkEyXkFqcGc@._V1_.jpg"
-    },
-    {
-      "id": "f103",
-      "title": "The Conjuring 3 ",
-      "img": "https://i0.wp.com/bloody-disgusting.com/wp-content/uploads/2020/07/conjuring-3-1.jpg?resize=700%2C1039&ssl=1"
-    },
-    {
-      "id": "2af1",
-      "title": "Rec",
-      "img": "https://m.media-amazon.com/images/M/MV5BMDEzNDc5ODMtZTAyNi00MTNkLThkNGUtZGE2MDY0MjBiYjMzXkEyXkFqcGc@._V1_.jpg"
+      "id": "1274",
+      "title": "The Lord Of The Rings",
+      "img": "https://m.media-amazon.com/images/M/MV5BNzIxMDQ2YTctNDY4MC00ZTRhLTk4ODQtMTVlOWY4NTdiYmMwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
     }
   ]
 }

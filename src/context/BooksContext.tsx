@@ -1,4 +1,4 @@
-import { createContext, useState, type ReactNode } from "react";
+import { createContext, useCallback, useState, type ReactNode } from "react";
 import type {
   BookCreateEntity,
   BookEditEntity,
@@ -33,10 +33,10 @@ export function BooksContextProvider({ children }: BooksContextProviderProps) {
     setDisplayModal(!displayModal);
   };
 
-  const fetchBookList = async () => {
+  const fetchBookList = useCallback(async () => {
     const data = await getBookListService();
     setBooks(data);
-  };
+  }, []);
 
   const handleBookCreation = async (book: BookCreateEntity) => {
     await createBookService(book);

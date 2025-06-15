@@ -8,7 +8,7 @@ export function App() {
 
   useEffect(() => {
     fetchBookList();
-  }, []);
+  }, [fetchBookList]);
 
   return (
     <div className="p-5">

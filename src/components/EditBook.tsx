@@ -61,15 +61,18 @@ export function EditBook({ onCloseEditing, book }: EditBookProps) {
           onChange={handleEdition}
         />
         <br />
-        <button type="submit" className="border py-1 px-3">
-          Save
-        </button>
         <button
           onClick={handleDisplayModal}
           className="border-1 w-30 h-10 mt-2 ml-2 bg-green-200"
           type="button"
         >
           Choose Image
+        </button>
+        <button
+          type="submit"
+          className="border-1 w-30 h-10 mt-2 ml-2 bg-green-200"
+        >
+          Save
         </button>
       </form>
 
