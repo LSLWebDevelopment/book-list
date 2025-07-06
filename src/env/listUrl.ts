@@ -1,4 +1,5 @@
-export const listBooksUrl = "http://localhost:3000/books";
-export const createBookUrl = "http://localhost:3000/books";
-export const deleteBookUrl = "http://localhost:3000/books/:id";
-export const editBookUrl = "http://localhost:3000/books/:id";
+export const listBooksUrl = "https://book-list-backend-1.onrender.com/books";
+export const createBookUrl = "https://book-list-backend-1.onrender.com/books";
+export const deleteBookUrl =
+  "https://book-list-backend-1.onrender.com/books/:id";
+export const editBookUrl = "https://book-list-backend-1.onrender.com/books/:id";
