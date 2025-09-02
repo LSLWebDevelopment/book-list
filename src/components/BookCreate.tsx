@@ -45,7 +45,12 @@ export function BookCreate({ handleBookCreate }: BookCreateProps) {
           />
           <br />
           <div className="text-center">
-            <Button type="submit">Submit</Button>
+            <Button
+              className="border-2 border-gray-600 w-30 py-1 rounded-sm font-semibold"
+              type="submit"
+            >
+              Submit
+            </Button>
           </div>
         </div>
       </form>

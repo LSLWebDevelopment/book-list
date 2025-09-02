@@ -27,5 +27,5 @@ export function BookList({
     );
   });
 
-  return <ul>{renderedBooks}</ul>;
+  return <div className="flex flex-wrap gap-5 mt-5">{renderedBooks}</div>;
 }

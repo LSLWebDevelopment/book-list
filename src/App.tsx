@@ -37,7 +37,7 @@ export function App() {
   };
 
   return (
-    <div>
+    <div className="m-5">
       <BookCreate handleBookCreate={bookCreate} />
       <BookList
         books={books}

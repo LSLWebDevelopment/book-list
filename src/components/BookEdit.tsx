@@ -1,6 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import type { IBookCreate, IBookEdition } from "../entities/books";
 import { Button } from "./Button";
+import logo from "../assets/logo.png";
 interface BookEditProps {
   book: IBookCreate;
   handleOpenCloseEditForm: () => void;
@@ -36,16 +37,35 @@ export function BookEdit({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="title">Title</label>
-        <br />
-        <input type="text" value={title} onChange={handleBookEdition} />
-        <br />
-      </div>
-      <Button type="button" onClick={closeEdition}>
-        Save
-      </Button>
-    </form>
+    <div className="flex border-2 border-gray-200 w-100 -mt-1 rounded-sm shadow-xl bg-white absolute z-0">
+      <figure>
+        <img src={logo} alt="logo" width="100" />
+      </figure>
+      <form
+        onSubmit={handleSubmit}
+        className="flex justify-center mx-auto mb-5 rounded-2xl ml-0"
+      >
+        <div>
+          <label htmlFor="title" className="font-semibold">
+            Title
+          </label>
+          <br />
+          <input
+            type="text"
+            value={title}
+            onChange={handleBookEdition}
+            className="border rounded-sm border-gray-200 w-60 px-2 mb-1 mt-1 outline-none"
+          />
+          <br />
+          <Button
+            className="border border-gray-600 w-20 rounded-sm text-sm"
+            type="button"
+            onClick={closeEdition}
+          >
+            Save
+          </Button>
+        </div>
+      </form>
+    </div>
   );
 }
