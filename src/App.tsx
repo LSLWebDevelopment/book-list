@@ -12,7 +12,7 @@ export function App() {
     setBooks((prevBookArr: IBookCreate[]) => {
       return [...prevBookArr, data];
     });
-    console.log("Create Book: ", books);
+    alert("Book CREATED successfully!");
   };
 
   const bookEdit = (data: IBookCreate) => {
@@ -23,12 +23,13 @@ export function App() {
       return book;
     });
     setBooks(filteredBooks);
+    alert("Book EDITED successfully!");
   };
 
   return (
     <div>
       <BookCreate handleBookCreate={bookCreate} />
-      <BookList books={books} />
+      <BookList books={books} handleBookEdition={bookEdit} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Button } from "./Button";
 import { Header } from "./Header";
-import type { IBookCreate } from "../entities/books";
+import type { IBookCreate, IBookEdition } from "../entities/books";
 
 interface BookCreateProps {
   handleBookCreate: (data: IBookCreate) => void;
@@ -35,7 +35,7 @@ export function BookCreate({ handleBookCreate }: BookCreateProps) {
         <br />
         <input type="text" value={title} onChange={handleTitleChange} />
         <br />
-        <Button>Submit</Button>
+        <Button type="submit">Submit</Button>
       </div>
     </form>
   );

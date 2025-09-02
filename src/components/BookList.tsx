@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { BookEdit } from "./BookEdit";
-
+import type { IBookEdition } from "../entities/books";
+import { BookShow } from "./BookShow";
 interface BookItem {
   id: number;
   title: string;
@@ -8,16 +7,17 @@ interface BookItem {
 
 interface BookListProps {
   books: BookItem[];
+  handleBookEdition: (data: IBookEdition) => void;
 }
 
-export function BookList({ books }: BookListProps) {
-  const [edit, setEdit] = useState(false);
-
+export function BookList({ books, handleBookEdition }: BookListProps) {
   const renderedBooks = books.map(({ id, title }: BookItem) => {
     return (
-      <li key={id} onClick={() => setEdit(!edit)}>
-        {edit ? <BookEdit /> : title}
-      </li>
+      <BookShow
+        key={id}
+        book={{ id, title }}
+        handleBookEdition={handleBookEdition}
+      />
     );
   });
 
