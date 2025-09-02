@@ -26,10 +26,24 @@ export function App() {
     alert("Book EDITED successfully!");
   };
 
+  const bookDelete = (id: number) => {
+    const updatedBooks = books.filter((book: IBookCreate) => {
+      if (book.id !== id) {
+        return book;
+      }
+    });
+    setBooks(updatedBooks);
+    alert("Book DELETED successfully!");
+  };
+
   return (
     <div>
       <BookCreate handleBookCreate={bookCreate} />
-      <BookList books={books} handleBookEdition={bookEdit} />
+      <BookList
+        books={books}
+        handleBookEdition={bookEdit}
+        handleBookDeletion={bookDelete}
+      />
     </div>
   );
 }
