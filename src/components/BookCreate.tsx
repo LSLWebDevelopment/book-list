@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Button } from "./Button";
 import { Header } from "./Header";
-import type { IBookCreate, IBookEdition } from "../entities/books";
+import type { IBookCreate } from "../entities/books";
 
 interface BookCreateProps {
   handleBookCreate: (data: IBookCreate) => void;

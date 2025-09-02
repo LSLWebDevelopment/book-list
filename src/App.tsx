@@ -6,7 +6,7 @@ import { BookList } from "./components/BookList";
 export function App() {
   const [books, setBooks] = useState<IBookCreate[]>([]);
 
-  const bookList = () => {};
+  // const bookList = () => {};
 
   const bookCreate = (data: IBookCreate) => {
     setBooks((prevBookArr: IBookCreate[]) => {
