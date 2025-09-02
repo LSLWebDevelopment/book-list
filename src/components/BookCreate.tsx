@@ -26,17 +26,29 @@ export function BookCreate({ handleBookCreate }: BookCreateProps) {
   };
 
   return (
-    <form onSubmit={handleSutmit}>
+    <div className="border-2 border-gray-200 w-150 mx-auto mt-5 rounded-sm shadow-xl bg-white">
       <div>
         <Header title="Add a Book" />
       </div>
-      <div>
-        <label htmlFor="title">Title</label>
-        <br />
-        <input type="text" value={title} onChange={handleTitleChange} />
-        <br />
-        <Button type="submit">Submit</Button>
-      </div>
-    </form>
+      <form
+        onSubmit={handleSutmit}
+        className="flex justify-center mx-auto mb-5 rounded-2xl"
+      >
+        <div>
+          <label htmlFor="title">Title</label>
+          <br />
+          <input
+            type="text"
+            value={title}
+            onChange={handleTitleChange}
+            className="border rounded-sm border-gray-200 w-80 py-1 px-2 mb-3 mt-1 outline-none"
+          />
+          <br />
+          <div className="text-center">
+            <Button type="submit">Submit</Button>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 }

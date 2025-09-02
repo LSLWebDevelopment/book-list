@@ -8,7 +8,11 @@ type ButtonProps = {
 
 export function Button({ children, onClick, type }: ButtonProps) {
   return (
-    <button type={type} onClick={onClick}>
+    <button
+      type={type}
+      onClick={onClick}
+      className="border-2 border-gray-600 w-30 py-1 rounded-sm"
+    >
       {children}
     </button>
   );

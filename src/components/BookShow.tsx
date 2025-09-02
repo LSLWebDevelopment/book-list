@@ -31,11 +31,14 @@ export function BookShow({
 
   return (
     <div>
+      <Button onClick={handleOpenCloseEditForm} type="button">
+        Edit
+      </Button>
       <Button onClick={onBookDeletion} type="button">
         Delete
       </Button>
       {!edit ? (
-        <li onClick={handleOpenCloseEditForm}>{book.title}</li>
+        <li>{book.title}</li>
       ) : (
         <BookEdit
           book={book}
