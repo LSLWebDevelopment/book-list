@@ -17,6 +17,11 @@ export function BookCreate({ handleBookCreate }: BookCreateProps) {
   const handleSutmit = (event: FormEvent) => {
     event.preventDefault();
 
+    if (title === "") {
+      alert("You have to enter at least ONE WORD for the title field.");
+      return;
+    }
+
     const data = {
       title,
       id: Math.floor(Math.random() * 999),
@@ -41,6 +46,7 @@ export function BookCreate({ handleBookCreate }: BookCreateProps) {
           <input
             type="text"
             value={title}
+            autoFocus
             onChange={handleTitleChange}
             className="border rounded-sm border-gray-200 w-80 py-1 px-2 mb-3 mt-1 outline-none"
           />

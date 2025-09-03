@@ -54,6 +54,7 @@ export function BookEdit({
             type="text"
             value={title}
             onChange={handleBookEdition}
+            autoFocus
             className="border rounded-sm border-gray-200 w-60 px-2 mb-1 mt-1 outline-none"
           />
           <br />

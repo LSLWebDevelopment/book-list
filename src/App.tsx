@@ -28,6 +28,14 @@ export function App() {
   };
 
   const bookDelete = (id: number) => {
+    const answer = prompt(
+      "Are you sure you want to delete this book? Type Yes or No"
+    );
+
+    if (answer?.toLowerCase().trim() === "no") {
+      return;
+    }
+
     const updatedBooks = books.filter((book: IBookCreate) => {
       if (book.id !== id) {
         return book;
