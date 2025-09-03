@@ -1,9 +1,13 @@
 export interface IBookCreate {
-  id: number;
   title: string;
 }
 
 export interface IBookEdition {
-  id: number;
+  id: string;
+  title: string;
+}
+
+export interface IBookEntity {
+  id: string;
   title: string;
 }

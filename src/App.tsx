@@ -1,25 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BookCreate } from "./components/BookCreate";
-import type { IBookCreate } from "./entities/books";
 import { BookList } from "./components/BookList";
+import type { IBookCreate, IBookEdition, IBookEntity } from "./entities/books";
+import { createBookService } from "./services/createBookService";
+import { deleteBookService } from "./services/deleteBookService";
+import { editBookService } from "./services/editBookService";
+import { getBookListService } from "./services/getBookListService";
+// import path from "path";
 
 export function App() {
-  const [books, setBooks] = useState<IBookCreate[]>([]);
+  const [books, setBooks] = useState<IBookEntity[]>([]);
 
-  // const bookList = () => {};
+  useEffect(() => {
+    bookList();
+  }, []);
 
-  const bookCreate = (data: IBookCreate) => {
-    setBooks((prevBookArr: IBookCreate[]) => {
-      return [...prevBookArr, data];
+  const bookList = async () => {
+    const response = await getBookListService();
+    setBooks(response);
+  };
+
+  const bookCreate = async (data: IBookCreate) => {
+    const response = await createBookService(data);
+
+    setBooks((prevBookArr: IBookEntity[]) => {
+      return [...prevBookArr, response];
     });
+
     alert("Book CREATED successfully!");
   };
 
-  const bookEdit = (data: IBookCreate) => {
-    const filteredBooks = books.map((book: IBookCreate) => {
+  const bookEdit = async (data: IBookEdition) => {
+    const response = await editBookService(data);
+
+    const filteredBooks = books.map((book: IBookEdition) => {
       if (data.id === book.id) {
-        return data;
-        return { ...book, title: data.title };
+        // return data;
+        return { ...book, title: response.title };
       }
       return book;
     });
@@ -27,7 +44,7 @@ export function App() {
     alert("Book EDITED successfully!");
   };
 
-  const bookDelete = (id: number) => {
+  const bookDelete = async (id: string) => {
     const answer = prompt(
       "Are you sure you want to delete this book? Type Yes or No"
     );
@@ -36,8 +53,9 @@ export function App() {
       return;
     }
 
-    const updatedBooks = books.filter((book: IBookCreate) => {
-      if (book.id !== id) {
+    const response = await deleteBookService(id);
+    const updatedBooks = books.filter((book: IBookEntity) => {
+      if (book.id !== response.id) {
         return book;
       }
     });

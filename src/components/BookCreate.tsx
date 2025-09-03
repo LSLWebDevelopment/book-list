@@ -24,7 +24,7 @@ export function BookCreate({ handleBookCreate }: BookCreateProps) {
 
     const data = {
       title,
-      id: Math.floor(Math.random() * 999),
+      // id: Math.floor(Math.random() * 999),
     };
 
     setTitle("");
