@@ -1,20 +1,20 @@
 import type { IBookEdition } from "../entities/books";
 import { BookShow } from "./BookShow";
 interface BookItem {
-  id: number;
+  id: string;
   title: string;
 }
 
 interface BookListProps {
   books: BookItem[];
   handleBookEdition: (data: IBookEdition) => void;
-  handleBookDeletion: (id: number) => void;
+  handleBookDeletion: (id: string) => void;
 }
 
 export function BookList({
   books,
-  handleBookDeletion,
   handleBookEdition,
+  handleBookDeletion,
 }: BookListProps) {
   const renderedBooks = books.map(({ id, title }: BookItem) => {
     return (

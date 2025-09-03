@@ -7,14 +7,14 @@ import { Button } from "./Button";
 import logo from "../assets/logo.png";
 
 interface BookItem {
-  id: number;
+  id: string;
   title: string;
 }
 
 interface BookShowProps {
   book: BookItem;
   handleBookEdition: (data: IBookEdition) => void;
-  handleBookDeletion: (id: number) => void;
+  handleBookDeletion: (id: string) => void;
 }
 
 export function BookShow({

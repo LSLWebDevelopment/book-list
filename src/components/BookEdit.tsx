@@ -1,9 +1,9 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import type { IBookCreate, IBookEdition } from "../entities/books";
-import { Button } from "./Button";
 import logo from "../assets/logo.png";
+import type { IBookEdition, IBookEntity } from "../entities/books";
+import { Button } from "./Button";
 interface BookEditProps {
-  book: IBookCreate;
+  book: IBookEntity;
   handleOpenCloseEditForm: () => void;
   handleEdition: (data: IBookEdition) => void;
 }
@@ -54,6 +54,7 @@ export function BookEdit({
             type="text"
             value={title}
             onChange={handleBookEdition}
+            autoFocus
             className="border rounded-sm border-gray-200 w-60 px-2 mb-1 mt-1 outline-none"
           />
           <br />
