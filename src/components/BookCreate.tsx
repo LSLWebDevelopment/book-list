@@ -22,6 +22,7 @@ export function BookCreate({ handleBookCreate }: BookCreateProps) {
       id: Math.floor(Math.random() * 999),
     };
 
+    setTitle("");
     handleBookCreate(data);
   };
 

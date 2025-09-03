@@ -19,6 +19,7 @@ export function App() {
     const filteredBooks = books.map((book: IBookCreate) => {
       if (data.id === book.id) {
         return data;
+        return { ...book, title: data.title };
       }
       return book;
     });
