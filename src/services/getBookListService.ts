@@ -5,5 +5,6 @@ const url = "http://localhost:3000/books";
 
 export async function getBookListService(): Promise<IBookEntity[]> {
   const response = await axios.get<IBookEntity[]>(url);
+  console.log(response.data);
   return response.data;
 }

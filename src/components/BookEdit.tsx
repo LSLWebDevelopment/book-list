@@ -1,19 +1,17 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import logo from "../assets/logo.png";
-import type { IBookEdition, IBookEntity } from "../entities/books";
+import type { IBookEntity } from "../entities/books";
+import { useBookContext } from "../hooks/useBookContext";
 import { Button } from "./Button";
 interface BookEditProps {
   book: IBookEntity;
   handleOpenCloseEditForm: () => void;
-  handleEdition: (data: IBookEdition) => void;
 }
 
-export function BookEdit({
-  handleOpenCloseEditForm,
-  handleEdition,
-  book,
-}: BookEditProps) {
+export function BookEdit({ handleOpenCloseEditForm, book }: BookEditProps) {
   const [title, setTitle] = useState(book.title);
+
+  const { bookEdit } = useBookContext();
 
   const closeEdition = () => {
     handleOpenCloseEditForm();
@@ -33,7 +31,7 @@ export function BookEdit({
 
     closeEdition();
 
-    handleEdition(data);
+    bookEdit(data);
   };
 
   return (
