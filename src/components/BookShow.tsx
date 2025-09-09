@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { LuPencil } from "react-icons/lu";
-import type { IBookEdition } from "../entities/books";
-import { BookEdit } from "./BookEdit";
-import { Button } from "./Button";
 import logo from "../assets/logo.png";
 import { useBookContext } from "../hooks/useBookContext";
+import { BookEdit } from "./BookEdit";
+import { Button } from "./Button";
 
 interface BookItem {
   id: string;
