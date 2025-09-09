@@ -1,8 +1,8 @@
 import axios from "axios";
 import type { IBookEdition } from "../entities/books";
 
-// const url = "http://localhost:3000/books";
-const url = import.meta.env.VITE_API_URL;
+const url = "https://book-list-back-end.onrender.com/books";
+// const url = import.meta.env.VITE_API_URL;
 
 export async function editBookService(
   data: IBookEdition
