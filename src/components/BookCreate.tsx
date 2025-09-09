@@ -1,13 +1,11 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useBookContext } from "../hooks/useBookContext";
 import { Button } from "./Button";
 import { Header } from "./Header";
-import type { IBookCreate } from "../entities/books";
 
-interface BookCreateProps {
-  handleBookCreate: (data: IBookCreate) => void;
-}
+export function BookCreate() {
+  const { bookCreate } = useBookContext();
 
-export function BookCreate({ handleBookCreate }: BookCreateProps) {
   const [title, setTitle] = useState("");
 
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -24,11 +22,10 @@ export function BookCreate({ handleBookCreate }: BookCreateProps) {
 
     const data = {
       title,
-      // id: Math.floor(Math.random() * 999),
     };
 
     setTitle("");
-    handleBookCreate(data);
+    bookCreate(data);
   };
 
   return (

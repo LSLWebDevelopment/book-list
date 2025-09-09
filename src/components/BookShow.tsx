@@ -5,6 +5,7 @@ import type { IBookEdition } from "../entities/books";
 import { BookEdit } from "./BookEdit";
 import { Button } from "./Button";
 import logo from "../assets/logo.png";
+import { useBookContext } from "../hooks/useBookContext";
 
 interface BookItem {
   id: string;
@@ -13,15 +14,10 @@ interface BookItem {
 
 interface BookShowProps {
   book: BookItem;
-  handleBookEdition: (data: IBookEdition) => void;
-  handleBookDeletion: (id: string) => void;
 }
 
-export function BookShow({
-  book,
-  handleBookEdition,
-  handleBookDeletion,
-}: BookShowProps) {
+export function BookShow({ book }: BookShowProps) {
+  const { bookDelete } = useBookContext();
   const [edit, setEdit] = useState(false);
 
   const handleOpenCloseEditForm = () => {
@@ -29,7 +25,7 @@ export function BookShow({
   };
 
   const onBookDeletion = () => {
-    handleBookDeletion(book.id);
+    bookDelete(book.id);
   };
 
   return (
@@ -42,7 +38,6 @@ export function BookShow({
       ) : (
         <BookEdit
           book={book}
-          handleEdition={handleBookEdition}
           handleOpenCloseEditForm={handleOpenCloseEditForm}
         />
       )}
