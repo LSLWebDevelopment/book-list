@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { IBookCreate, IBookEntity } from "../entities/books";
 
-const url = "http://localhost:3000/books";
+const url = "https://book-list-back-end.onrender.com/books";
 
 export async function createBookService(
   data: IBookCreate
