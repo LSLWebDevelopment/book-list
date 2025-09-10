@@ -19,7 +19,7 @@ PATCH http://localhost:3000/books/7 HTTP/1.1
 Content-Type: application/json
 
 {
-  "title": "EDITED"
+  "title": "EDITED again AND AGAIN...😎"
 }
 
 ### Delete a particular book by it's id
