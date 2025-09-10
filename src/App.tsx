@@ -1,12 +1,14 @@
+import { useEffect } from "react";
 import { BookCreate } from "./components/BookCreate";
 import { BookList } from "./components/BookList";
+import { useBookContext } from "./hooks/useBookContext";
 
 export function App() {
-  // const { bookList } = useBookContext();
+  const { bookList } = useBookContext();
 
-  // useEffect(() => {
-  //   bookList();
-  // }, []);
+  useEffect(() => {
+    bookList();
+  }, []);
 
   return (
     <div className="m-5">
