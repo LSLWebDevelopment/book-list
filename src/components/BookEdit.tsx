@@ -30,7 +30,6 @@ export function BookEdit({ handleOpenCloseEditForm, book }: BookEditProps) {
     };
 
     closeEdition();
-
     bookEdit(data);
   };
 
@@ -58,8 +57,8 @@ export function BookEdit({ handleOpenCloseEditForm, book }: BookEditProps) {
           <br />
           <Button
             className="border border-gray-600 w-20 rounded-sm text-sm"
-            type="button"
-            onClick={closeEdition}
+            type="submit"
+            // onClick={closeEdition}
           >
             Save
           </Button>

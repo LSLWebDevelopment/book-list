@@ -58,8 +58,6 @@ export function BookContextProvider({ children }: BookContextProviderProps) {
   };
 
   const bookEdit = async (data: IBookEdition) => {
-    console.log("response.data");
-
     const response = await editBookService(data);
 
     const filteredBooks = books.map((book: IBookEdition) => {
