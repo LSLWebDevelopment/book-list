@@ -29,12 +29,8 @@ export function BookContextProvider({ children }: BookContextProviderProps) {
   };
 
   const bookCreate = async (data: IBookCreate) => {
-    const response = await createBookService(data);
-
-    setBooks((prevBookArr: IBookEntity[]) => {
-      return [...prevBookArr, response];
-    });
-
+    await createBookService(data);
+    bookList();
     alert("Book CREATED successfully!");
   };
 
@@ -47,26 +43,14 @@ export function BookContextProvider({ children }: BookContextProviderProps) {
       return;
     }
 
-    const response = await deleteBookService(id);
-    const updatedBooks = books.filter((book: IBookEntity) => {
-      if (book.id !== response.id) {
-        return book;
-      }
-    });
-    setBooks(updatedBooks);
+    await deleteBookService(id);
+    bookList();
     alert("Book DELETED successfully!");
   };
 
   const bookEdit = async (data: IBookEdition) => {
-    const response = await editBookService(data);
-
-    const filteredBooks = books.map((book: IBookEdition) => {
-      if (data.id === book.id) {
-        return { ...book, ...response };
-      }
-      return book;
-    });
-    setBooks(filteredBooks);
+    await editBookService(data);
+    bookList();
     alert("Book EDITED successfully!");
   };
 
